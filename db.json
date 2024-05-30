@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "Create React app をインストールする",
+      "done": true
+    },
+    {
+      "id": 2,
+      "content": "JSON Serverへの仮APIを作成する",
+      "done": false
+    },
+    {
+      "id": 3,
+      "content": "Tailwind CSSをインストールし、装飾する",
+      "done": false
+    }
+  ]
+}
