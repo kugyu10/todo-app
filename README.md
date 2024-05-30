@@ -1,3 +1,5 @@
+# 初期設定
+
 # JSON Server起動
 `npx json-server --watch db.json --port 3100`
 
