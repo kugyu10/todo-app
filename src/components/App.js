@@ -1,63 +1,9 @@
 import { useRef } from 'react';
 import { useTodo } from '../hooks/useTodo';
+import { TodoTitle } from './TodoTitle';
+import { TodoList } from './TodoList';
+import { TodoAdd } from './TodoAdd';
 
-// ToDoTitleコンポーネント
-const TodoTitle = ({title, as}) => {
-
-  if (as === 'h1'){
-    return <h1>{title}</h1>;
-  } else if (as === 'h2'){
-    return <h2>{title}</h2>;
-  } else {
-    return <p>{title}</p>
-  }
-};
-
-
-
-// TodoItemコンポーネント
-const TodoItem = ({todo, toggleTodoListItemStatus, deleteTodoListItem}) => {
-
-  const handleToggleTodoListItemStatus = () => {
-    return toggleTodoListItemStatus(todo.id, todo.done);
-  }
-  const handleTodoListItem = () => {
-    return deleteTodoListItem(todo.id);
-  }
-
-  return (
-    <li>
-      {todo.content}
-      <button onClick={handleToggleTodoListItemStatus}>{todo.done ? "未完了リストへ" : "完了リストへ"}</button>
-      <button onClick={handleTodoListItem}>削除</button>
-    </li>
-  )
-}
-
-// TodoListコンポーネント
-const TodoList = ({ todoList, toggleTodoListItemStatus, deleteTodoListItem}) => {
-  return (
-    <ul>
-      {todoList.map((todo) => (
-        <TodoItem
-          todo={todo}
-          key={todo.id}
-          toggleTodoListItemStatus={toggleTodoListItemStatus}
-          deleteTodoListItem={deleteTodoListItem} />
-      ))}
-    </ul>
-  )
-}
-
-// TodoAdd コンポーネント
-const TodoAdd = ({ inputElm, handleAddTodoListItem}) => {
-  return (
-    <>
-    <textarea ref={inputElm}/>
-    <button onClick={handleAddTodoListItem}> + TODOを追加</button>
-    </>
-  )
-}
 
 function App() {
   const { 
